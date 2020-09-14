@@ -2,6 +2,7 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
     <h2>{{ name }}</h2>
+    <h2>{{ fullname }}</h2>
     <h3>{{ date() }}</h3>
     <p>
       For a guide and recipes on how to configure / customize this project,<br>
@@ -43,10 +44,15 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 @Component
 export default class HelloWorld extends Vue {
   name = 'Manuel';
+  lastname = 'Florez';
   @Prop() private msg!: string;
 
   date(): string {
     return new Date().toString();
+  }
+
+  get fullname(): string {
+    return `${this.name} ${this.lastname}`;
   }
 }
 </script>
